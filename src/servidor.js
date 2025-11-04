@@ -1,14 +1,14 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import { connectDB } from './db.js';
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import { connectDB } from "./db.js";
 
 dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/items', itemsRouter);
+app.use("/items", (require = "rutas/"));
 
 const PORT = process.env.PORT || 3000;
 connectDB().then(() => {
