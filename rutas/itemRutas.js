@@ -70,7 +70,7 @@ router.put("/mesas/:numeroMesa", async (req, res) => {
 router.delete("/comandas/:numeroMesa", async (req, res) => {
   try{
     const comandasBorrar = await Comanda.deleteMany( 
-      { numeroMesa: numeroMesa } 
+      { numeroMesa: req.params.numeroMesa } 
     );
     res.json(comandasBorrar);
     console.log("Comandas eliminadas!");
