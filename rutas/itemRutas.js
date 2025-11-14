@@ -19,7 +19,7 @@ router.get("/comandas", async (req, res) => {
 
 // Ruta para recibir mesas
 router.get("/mesas", async (req, res) => {
-  const mesas = await Mesa.find();
+  const mesas = await Mesa.find().sort({ numeroMesa: 1 });;
   res.json(mesas);
 });
 
