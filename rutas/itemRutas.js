@@ -66,4 +66,18 @@ router.put("/mesas/:numeroMesa", async (req, res) => {
   }
 });
 
+// Borrado de comandas
+router.delete("/comandas/:numeroMesa", async (req, res) => {
+  try{
+    const comandasBorrar = await Comanda.deleteMany( 
+      { numeroMesa: numeroMesa } 
+    );
+    res.json(comandasBorrar);
+    console.log("Comandas eliminadas!");
+  } catch (error) {
+    console.log("Error al borrar comandas!", error);
+    res.status(500).json({ message: "Error al borrar comandas!"})
+  }
+})
+
 export default router;
