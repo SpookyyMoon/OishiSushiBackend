@@ -48,7 +48,7 @@ router.post("/mesas", async (req, res) => {
 router.put("/platos", async (req, res) => {});
 
 // Ruta actualizacion comandas
-router.put("/comandas", async (req, res) => {
+router.put("/comandas/:numeroMesa", async (req, res) => {
   try {
     const comandaActualizada = await Comanda.findOneAndUpdate(
       { numeroMesa: req.params.numeroMesa },
@@ -59,7 +59,7 @@ router.put("/comandas", async (req, res) => {
     console.log("Comanda actualizada!")
   } catch (error) {
     console.log("Error al actualizar comanda!", error);
-    res.status(500).json({ message: "Error al actualizar comanda!"});
+    res.status(500).json({ message: "Error al actualizar comanda!"})
   }
 });
 
